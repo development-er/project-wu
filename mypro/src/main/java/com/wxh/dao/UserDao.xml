@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxh.dao.UserDao">
+
+	<select id="queryUserById" parameterType="java.lang.String"
+		resultType="User">
+		select * from user where id=#{id}
+	</select>
+	
+	<insert id="insertUserInformation" parameterType="User">
+        INSERT INTO user (userName,password,gender,department,id,introduce,phone) 
+        VALUES (#{userName},#{password},#{gender},#{department},#{id},#{introduce},#{phone})
+    </insert>
+    
+    <insert id="insertIntoSomeGroup" parameterType="User">
+        INSERT INTO #{groupName} (userName,password,gender,department,id,introduce,phone) 
+        VALUES (#{userName},#{password},#{gender},#{department},#{id},#{introduce},#{phone})
+    </insert>
+    
+    <delete id="deleteUserInfoByStuNum" parameterType="java.lang.String">
+		delete from user
+		where stuNum = #{stuNum}
+	</delete>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxh.dao.ArticleDao">
+
+	<select id="queryArticleByName" parameterType="java.lang.String"
+		resultType="Article">
+		select * from article where articleName=#{articleName}
+	</select>
+	
+	<insert id="addArticle" parameterType="Article">
+        INSERT INTO article (articleName,paragraphs1,paragraphs2,paragraphs3,image1,image2,icon) 
+        VALUES (#{articleName},#{paragraphs1},#{paragraphs2},#{paragraphs3},#{image1Path},#{image2Path},#{iconPath})
+    </insert>
+
+</mapper>

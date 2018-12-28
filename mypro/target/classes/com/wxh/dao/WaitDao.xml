@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxh.dao.WaitDao">
+
+	<select id="queryWaitList" parameterType="java.lang.String"
+		resultType="Wait">
+		select * from waittoselect
+	</select>
+	
+	<select id="queryWaitListBySocietyId" parameterType="java.lang.String"
+		resultType="Wait">
+		select * from waittoselect where societyid = #{societyid}
+	</select>
+	
+	<insert id="addToWaitList" parameterType="Wait">
+        INSERT INTO waittoselect (username,password,stuNum,societyid) 
+        VALUES (#{userName},#{password},#{stuNum},#{societyid})
+    </insert>
+    
+    <delete id="deleteForWait" parameterType="java.lang.String">
+		delete from waittoselect
+		where stuNum = #{stuNum}
+	</delete>
+</mapper>

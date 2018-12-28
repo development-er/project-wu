@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxh.dao.BeSelectDao">
+
+	<select id="queryBeSelectList" parameterType="java.lang.String"
+		resultType="BeSelect">
+		select * from beselect
+	</select>
+
+	<select id="queryListByStuNum" parameterType="java.lang.String"
+		resultType="BeSelect">
+		select * from beselect where societyid =#{societyid}
+	</select>
+
+	<insert id="add" parameterType="BeSelect">
+		INSERT INTO beselect (username,password,stuNum,societyid)
+		VALUES (#{userName},#{password},#{stuNum},#{societyid})
+	</insert>
+
+	<delete id="delete"
+		parameterType="java.lang.String">
+		delete from beselect
+		where stuNum = #{stuNum}
+	</delete>
+
+
+</mapper>

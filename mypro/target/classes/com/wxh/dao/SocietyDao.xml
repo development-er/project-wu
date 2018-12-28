@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxh.dao.SocietyDao">
+
+	<select id="querySocieList" parameterType="java.lang.String"
+		resultType="Society">
+		select * from societylist
+	</select>
+	
+	<insert id="addSociety" parameterType="Society">
+        INSERT INTO societyList (title,icon,introduce) 
+        VALUES (#{title},#{iconPath},#{introduce})
+    </insert>
+    
+    <delete id="deleteSociety" parameterType="java.lang.String">
+		delete from societyList
+		where title = #{title}
+	</delete>
+	
+	<!-- 更改用户信息 -->
+	<update id="updateSocieInfo" parameterType="Society">
+		update societyList
+		set title = #{title},
+		icon = #{iconPath},
+		introduce = #{introduce},
+		where title = #{title}
+	</update>
+	
+
+
+</mapper>
